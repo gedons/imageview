@@ -1,12 +1,15 @@
-const express = require('express');
 const dotenv = require('dotenv');
+dotenv.config();
+const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const imageRoutes = require('./routes/imageRoutes');
 
-dotenv.config();
+
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 app.use('/api/images', imageRoutes);
 
 const PORT = process.env.PORT || 5000;
